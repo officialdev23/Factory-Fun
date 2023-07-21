@@ -19,7 +19,7 @@ public class AcountBalanceUpdater : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        PlayerPrefs.SetInt("accountBalance", 100);
+        PlayerPrefs.SetInt("accountBalance", 1000);
     }
     // Update is called once per frame
     void Update()
@@ -47,5 +47,11 @@ public class AcountBalanceUpdater : MonoBehaviour
          PlayerPrefs.SetInt("accountBalance",accountBalance);
         PlayerPrefs.SetInt("royaltyToken", royaltyToken);
         //accountBalanceText.text = "Account Balance:" + accountBalance;
+    }
+
+    public void UpdateAfterTransactions()
+    {
+        int accountBal = PlayerPrefs.GetInt("accountBalance");
+        accountBalanceText.text = "Account Balance:" + accountBal;
     }
 }
